@@ -1,4 +1,11 @@
-# -*- coding: utf-8 -*-
+"""
+52破解自动签到脚本
+Source: https://github.com/RoadIsLong/52pojie_Sign/blob/master/main.py
+"""
+'''
+cron: 0 1 * * * 52pojie.py
+new Env('吾爱破解签到');
+'''
 
 import os
 import requests
