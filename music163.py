@@ -7,7 +7,8 @@ new Env('网易云音乐');
 
 import requests, time, re, json, sys, traceback, os
 from io import StringIO
-from KDconfig import getYmlConfig, send
+
+from notify import send
 
 class Music163:
     def __init__(self, cookie):
@@ -55,7 +56,7 @@ class Music163:
         return self.sio
 
 if __name__ == '__main__':
-    Cookies = os.getenv('Music163_COOKIE')
+    Cookies = os.getenv('MUSIC163_COOKIE')
     if Cookies != None:
         if Cookies.get('cookies') != None:
             music163 = Music163(Cookies['cookies'])

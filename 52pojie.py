@@ -11,6 +11,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
+from notify import send
+
 def sign(cookie):
     result = ""
     headers = {
@@ -34,13 +36,13 @@ def sign(cookie):
         result += "今日已签到"
     else:
         result += "签到失败"
-    return result 
+    return result
 
 def main():
     b = os.environ['POJIE_COOKIE']
     cookie = b
     sign_msg = sign(cookie=cookie)
-    print(sign_msg)
+    send("52破解", sign_msg)
 
 
 if __name__ == "__main__":
