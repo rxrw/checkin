@@ -114,16 +114,13 @@ class BDTieBa:
 if __name__ == '__main__':
     Cookies = os.getenv("TIEBA_COOKIE")
     if Cookies != None:
-        if Cookies.get('cookies') != None:
-            bdtieba = BDTieBa(Cookies['cookies'])
-            sio = bdtieba.SignIn()
-            print(f'\n{sio.getvalue()}')
-            if Cookies.get('send') != None and Cookies['send'] == 1:
-                send('百度贴吧', sio.getvalue())
-            else:
-                print('推送失败: 关闭了推送 or send配置问题')
+        bdtieba = BDTieBa(Cookies)
+        sio = bdtieba.SignIn()
+        print(f'\n{sio.getvalue()}')
+        if Cookies.get('send') != None and Cookies['send'] == 1:
+            send('百度贴吧', sio.getvalue())
         else:
-            print('配置文件 百度贴吧 没有 "cookies"')
-            sys.exit()
+            print('推送失败: 关闭了推送 or send配置问题')
+
     else:
         print('配置文件没有 百度贴吧')

@@ -58,16 +58,13 @@ class Music163:
 if __name__ == '__main__':
     Cookies = os.getenv('MUSIC163_COOKIE')
     if Cookies != None:
-        if Cookies.get('cookies') != None:
-            music163 = Music163(Cookies['cookies'])
-            sio = music163.SignIn()
-            print(f'\n{sio.getvalue()}')
-            if Cookies.get('send') != None and Cookies['send'] == 1:
-                send('网易云音乐', sio.getvalue())
-            else:
-                print('推送失败: 关闭了推送 or send配置问题')
+        music163 = Music163(Cookies)
+        sio = music163.SignIn()
+        print(f'\n{sio.getvalue()}')
+        if Cookies.get('send') != None and Cookies['send'] == 1:
+            send('网易云音乐', sio.getvalue())
         else:
-            print('配置文件 网易云音乐 没有 "cookies"')
-            sys.exit()
+            print('推送失败: 关闭了推送 or send配置问题')
+        sys.exit()
     else:
         print('配置文件没有 网易云音乐')
