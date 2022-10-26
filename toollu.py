@@ -54,9 +54,6 @@ if __name__ == '__main__':
     toollu = ToolLu(Cookies)
     sio = toollu.SignIn()
     print(f'\n{sio.getvalue()}')
-    if Cookies.get('send') != None and Cookies['send'] == 1:
-        send('Tool工具', sio.getvalue())
-    else:
-        print('推送失败: 关闭了推送 or send配置问题')
+    send('Tool工具', sio.getvalue())
   else:
       print('配置文件没有 Tool工具')

@@ -117,10 +117,7 @@ if __name__ == '__main__':
         bdtieba = BDTieBa(Cookies)
         sio = bdtieba.SignIn()
         print(f'\n{sio.getvalue()}')
-        if Cookies.get('send') != None and Cookies['send'] == 1:
-            send('百度贴吧', sio.getvalue())
-        else:
-            print('推送失败: 关闭了推送 or send配置问题')
+        send('百度贴吧', sio.getvalue())
 
     else:
         print('配置文件没有 百度贴吧')

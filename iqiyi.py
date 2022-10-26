@@ -235,9 +235,6 @@ if __name__ == '__main__':
       iqiyi = IQIYI(Cookies)
       sio = iqiyi.SignIn()
       print(f'\n{sio.getvalue()}')
-      if Cookies.get('send') != None and Cookies['send'] == 1:
-          send('爱奇艺', sio.getvalue())
-      else:
-          print('推送失败: 关闭了推送 or send配置问题')
+      send('爱奇艺', sio.getvalue())
     else:
         print('配置文件没有 爱奇艺')

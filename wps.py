@@ -94,9 +94,6 @@ if __name__ == '__main__':
       wps = WPS(Cookies['cookies'])
       sio = wps.SignIn()
       print(f'\n{sio.getvalue()}')
-      if Cookies.get('send') != None and Cookies['send'] == 1:
-          send('WPS签到', sio.getvalue())
-      else:
-          print('推送失败: 关闭了推送 or send配置问题')
+      send('WPS签到', sio.getvalue())
     else:
         print('配置文件没有 WPS签到')

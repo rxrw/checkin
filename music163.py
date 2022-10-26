@@ -61,10 +61,6 @@ if __name__ == '__main__':
         music163 = Music163(Cookies)
         sio = music163.SignIn()
         print(f'\n{sio.getvalue()}')
-        if Cookies.get('send') != None and Cookies['send'] == 1:
-            send('网易云音乐', sio.getvalue())
-        else:
-            print('推送失败: 关闭了推送 or send配置问题')
-        sys.exit()
+        send('网易云音乐', sio.getvalue())
     else:
         print('配置文件没有 网易云音乐')

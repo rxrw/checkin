@@ -54,7 +54,4 @@ if __name__ == '__main__':
     enshan = EnShan(Cookies)
     sio = enshan.SignIn()
     print(f'\n{sio.getvalue()}')
-    if Cookies.get('send') != None and Cookies['send'] == 1:
-        send('恩山论坛', sio.getvalue())
-    else:
-        print('推送失败: 关闭了推送 or send配置问题')
+    send('恩山论坛', sio.getvalue())

@@ -146,9 +146,6 @@ if __name__ == '__main__':
     vqq = VQQ(Cookies['cookies'])
     sio = vqq.SignIn()
     print(f'\n{sio.getvalue()}')
-    if Cookies.get('send') != None and Cookies['send'] == 1:
-        send('腾讯视频', sio.getvalue())
-    else:
-        print('推送失败: 关闭了推送 or send配置问题')
+    send('腾讯视频', sio.getvalue())
   else:
     print('配置文件没有 腾讯视频')
