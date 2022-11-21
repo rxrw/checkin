@@ -58,6 +58,7 @@ class Music163:
 if __name__ == '__main__':
     Cookies = os.getenv('MUSIC163_COOKIE')
     if Cookies != None:
+        Cookies = json.loads(Cookies)
         music163 = Music163(Cookies)
         sio = music163.SignIn()
         print(f'\n{sio.getvalue()}')
