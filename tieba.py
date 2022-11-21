@@ -114,6 +114,7 @@ class BDTieBa:
 if __name__ == '__main__':
     Cookies = os.getenv("TIEBA_COOKIE")
     if Cookies != None:
+        Cookies = json.loads(Cookies)
         bdtieba = BDTieBa(Cookies)
         sio = bdtieba.SignIn()
         print(f'\n{sio.getvalue()}')
