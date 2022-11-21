@@ -91,7 +91,8 @@ class WPS:
 if __name__ == '__main__':
     Cookies = os.environ.get('WPS_COOKIE')
     if Cookies != None:
-      wps = WPS(Cookies['cookies'])
+      Cookies = json.loads(Cookies)
+      wps = WPS(Cookies)
       sio = wps.SignIn()
       print(f'\n{sio.getvalue()}')
       send('WPS签到', sio.getvalue())

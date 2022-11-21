@@ -51,6 +51,7 @@ class ToolLu:
 if __name__ == '__main__':
   Cookies = os.environ.get("TOOLLU_COOKIE")
   if Cookies != None:
+    Cookies = json.loads(Cookies)
     toollu = ToolLu(Cookies)
     sio = toollu.SignIn()
     print(f'\n{sio.getvalue()}')

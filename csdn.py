@@ -4,7 +4,7 @@ cron: 55 7 * * *
 new Env('CSDN');
 """
 
-import os
+import os, json
 import requests, traceback, sys
 from io import StringIO
 
@@ -73,6 +73,7 @@ class CSDN:
 if __name__ == '__main__':
     Cookies = os.getenv("CSDN_COOKIE")
     if Cookies != None:
+      Cookies = json.loads(Cookies)
       csdn = CSDN(Cookies)
       sio = csdn.SignIn()
       print(f'\n{sio.getvalue()}')

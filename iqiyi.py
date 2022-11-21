@@ -232,6 +232,7 @@ class IQIYI:
 if __name__ == '__main__':
     Cookies = os.environ.get('IQIYI')
     if Cookies != None:
+      Cookies = json.loads(Cookies)
       iqiyi = IQIYI(Cookies)
       sio = iqiyi.SignIn()
       print(f'\n{sio.getvalue()}')

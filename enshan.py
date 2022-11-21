@@ -51,6 +51,7 @@ class EnShan:
 if __name__ == '__main__':
   Cookies = os.getenv("ENSHAN_COOKIE")
   if Cookies != None:
+    Cookies = json.loads(Cookies)
     enshan = EnShan(Cookies)
     sio = enshan.SignIn()
     print(f'\n{sio.getvalue()}')

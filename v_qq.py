@@ -143,6 +143,7 @@ class VQQ:
 if __name__ == '__main__':
   Cookies = os.environ.get('VQQ_COOKIE')
   if Cookies != None:
+    Cookies = json.loads(Cookies)
     vqq = VQQ(Cookies['cookies'])
     sio = vqq.SignIn()
     print(f'\n{sio.getvalue()}')
